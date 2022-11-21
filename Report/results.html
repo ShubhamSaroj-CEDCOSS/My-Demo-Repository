@@ -1,0 +1,1172 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>Extent Reports</title>
+
+	<style type='text/css'>
+	</style>
+</head>
+
+	<body class='extent standard default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>Wish Regression Automation Reports</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Nov 21, 2022 05:22:55 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.2</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Tests</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='50%'><span class='strong'>1</span> test(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='50%'>1</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='29.231%'><span class='strong'>38</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0.769%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='70%'>91</span> others
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Tests</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>validateTC_01</span>
+						<span class='test-time'>Nov 21, 2022 05:23:00 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Nov 21, 2022 05:23:00 PM</span>
+	<span class='label end-time'>Nov 21, 2022 05:23:31 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 30s+229ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:00 PM</td>
+					<td class='step-details'>Input email id in email box is successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:04 PM</td>
+					<td class='step-details'>Click on continue with email button successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:05 PM</td>
+					<td class='step-details'>Input password in password box is successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:15 PM</td>
+					<td class='step-details'>Click on login button successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:16 PM</td>
+					<td class='step-details'>Click on shopify settings successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:16 PM</td>
+					<td class='step-details'>Click on apps and sales channels successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:17 PM</td>
+					<td class='step-details'>Click on shopify app store successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:22 PM</td>
+					<td class='step-details'>Open shopify app store tab successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:23 PM</td>
+					<td class='step-details'>Input wish in search box successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:26 PM</td>
+					<td class='step-details'>Click on wish marketplace integration app successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:29 PM</td>
+					<td class='step-details'>Click on add app successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:31 PM</td>
+					<td class='step-details'>Click on install app successfully</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='2'>
+					<div class='test-heading'>
+						<span class='test-name'>validateTC_02</span>
+						<span class='test-time'>Nov 21, 2022 05:23:31 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Nov 21, 2022 05:23:31 PM</span>
+	<span class='label end-time'>Nov 21, 2022 05:26:14 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 2m 43s+610ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:23:44 PM</td>
+					<td class='step-details'>Where Actual Attribute Value is :- Shubham & Expected Attribute Value is :- Shubham</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:23:44 PM</td>
+					<td class='step-details'>Where Actual Attribute Value is :- true & Expected Attribute Value is :- true</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:23:44 PM</td>
+					<td class='step-details'>Where Actual Attribute Value is :- Saroj & Expected Attribute Value is :- Saroj</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:23:44 PM</td>
+					<td class='step-details'>Where Actual Attribute Value is :- true & Expected Attribute Value is :- true</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:23:44 PM</td>
+					<td class='step-details'>Where Actual Attribute Value is :- shubhamsaroj@cedcommerce.com & Expected Attribute Value is :- shubhamsaroj@cedcommerce.com</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:23:44 PM</td>
+					<td class='step-details'>Where Actual Attribute Value is :- true & Expected Attribute Value is :- true</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:44 PM</td>
+					<td class='step-details'>Click on time zone successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:44 PM</td>
+					<td class='step-details'>Select other successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:46 PM</td>
+					<td class='step-details'>Click on time zone successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:23:46 PM</td>
+					<td class='step-details'>Where Actual Attribute Value is :- display: block; & Expected Attribute Value is :- display: block;</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:46 PM</td>
+					<td class='step-details'>Click on time zone successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:46 PM</td>
+					<td class='step-details'>Select eastern time successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:23:46 PM</td>
+					<td class='step-details'>Selected text is -Eastern Time</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:46 PM</td>
+					<td class='step-details'>Click on time zone successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:46 PM</td>
+					<td class='step-details'>Click on time slot successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:46 PM</td>
+					<td class='step-details'>Select 2-4 PM successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:23:47 PM</td>
+					<td class='step-details'>Selected text is -2-4 PM</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:47 PM</td>
+					<td class='step-details'>Click on time slot successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:48 PM</td>
+					<td class='step-details'>Click on next successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:23:48 PM</td>
+					<td class='step-details'>Where Actual Text is :- How did you hear about us? cannot be blank. & Expected Text is :- How did you hear about us? cannot be blank.</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:48 PM</td>
+					<td class='step-details'>Click on how did you come to know about us ? successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:48 PM</td>
+					<td class='step-details'>Select other successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:23:48 PM</td>
+					<td class='step-details'>Where Actual Attribute Value is :- display: block; & Expected Attribute Value is :- display: block;</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:48 PM</td>
+					<td class='step-details'>Click on how did you come to know about us ? successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:48 PM</td>
+					<td class='step-details'>Select shopify app store successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:23:48 PM</td>
+					<td class='step-details'>Selected text is -Shopify App Store</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:49 PM</td>
+					<td class='step-details'>Click on next successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:23:50 PM</td>
+					<td class='step-details'>Where Actual Text is :- Please Choose Agreement. & Expected Text is :- Please Choose Agreement.</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:50 PM</td>
+					<td class='step-details'>Click on i agree checkbox successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:50 PM</td>
+					<td class='step-details'>Click on next successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:23:51 PM</td>
+					<td class='step-details'>Where Actual Text is :- Connect with WISH & Expected Text is :- Connect with WISH</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:53 PM</td>
+					<td class='step-details'>Click on click here successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:54 PM</td>
+					<td class='step-details'>Open wish for merchants tab successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:23:54 PM</td>
+					<td class='step-details'>Where Actual Title is :- Wish for Merchants & Expected is :- Wish for Merchants</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:54 PM</td>
+					<td class='step-details'>Back wish onboarding step 2 successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:58 PM</td>
+					<td class='step-details'>Click on connect button successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:23:58 PM</td>
+					<td class='step-details'>Where Actual Text is :- Login & Expected Text is :- Login</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:58 PM</td>
+					<td class='step-details'>Input email id in email box is successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:58 PM</td>
+					<td class='step-details'>Input password in password box is successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:23:58 PM</td>
+					<td class='step-details'>Click on login button successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:24:02 PM</td>
+					<td class='step-details'>Click on allow access successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:24:04 PM</td>
+					<td class='step-details'>Click on confirm successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:24:11 PM</td>
+					<td class='step-details'>Click on import product option successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:24:11 PM</td>
+					<td class='step-details'>Select all products import successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:24:11 PM</td>
+					<td class='step-details'>Click on instant import successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:24:14 PM</td>
+					<td class='step-details'>Where Actual Text is :- 101 (new + existing) SKU(s) imported successfully & Expected Text is :- 101 (new + existing) SKU(s) imported successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:24:14 PM</td>
+					<td class='step-details'>Click on import product option successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:24:14 PM</td>
+					<td class='step-details'>Select published products import successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:24:14 PM</td>
+					<td class='step-details'>Click on instant import successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:24:17 PM</td>
+					<td class='step-details'>Where Actual Text is :- 101 (new + existing) SKU(s) imported successfully & Expected Text is :- 101 (new + existing) SKU(s) imported successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:24:17 PM</td>
+					<td class='step-details'>Click on import product option successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:24:17 PM</td>
+					<td class='step-details'>Select apply filter for successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:24:17 PM</td>
+					<td class='step-details'>Click on product vendor successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:24:20 PM</td>
+					<td class='step-details'>Click on fetch product from shopify successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:24:21 PM</td>
+					<td class='step-details'>Click on select all successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:24:21 PM</td>
+					<td class='step-details'>Click on start import successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:24:21 PM</td>
+					<td class='step-details'>Click on instant import successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:25:15 PM</td>
+					<td class='step-details'>Where Actual Text is :- 101 (new + existing) SKU(s) imported successfully & Expected Text is :- 101 (new + existing) SKU(s) imported successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:17 PM</td>
+					<td class='step-details'>Click on import product option successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:17 PM</td>
+					<td class='step-details'>Select apply filter for successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:17 PM</td>
+					<td class='step-details'>Click on collections successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:19 PM</td>
+					<td class='step-details'>Click on fetch product from shopify successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:19 PM</td>
+					<td class='step-details'>Click on select all successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:19 PM</td>
+					<td class='step-details'>Click on start import successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:19 PM</td>
+					<td class='step-details'>Click on instant import successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:25:22 PM</td>
+					<td class='step-details'>Where Actual Text is :- 101 (new + existing) SKU(s) imported successfully & Expected Text is :- 101 (new + existing) SKU(s) imported successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:24 PM</td>
+					<td class='step-details'>Click on import product option successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:24 PM</td>
+					<td class='step-details'>Select all products import successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:25:24 PM</td>
+					<td class='step-details'>Where Actual Text is :- All products import confirmation & Expected Text is :- All products import confirmation</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:25:24 PM</td>
+					<td class='step-details'>Where Actual Text is :- Instant import & Expected Text is :- Instant import</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:25:24 PM</td>
+					<td class='step-details'>Where Actual Text is :- Backend import & Expected Text is :- Backend import</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:24 PM</td>
+					<td class='step-details'>Click on cross successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:24 PM</td>
+					<td class='step-details'>Click on import product option successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:24 PM</td>
+					<td class='step-details'>Select apply filter for successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:24 PM</td>
+					<td class='step-details'>Click on collections successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:26 PM</td>
+					<td class='step-details'>Click on fetch product from shopify successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:27 PM</td>
+					<td class='step-details'>Click on select all successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:27 PM</td>
+					<td class='step-details'>Click on start import successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:25:27 PM</td>
+					<td class='step-details'>Where Actual Text is :- Filtered product import confirmation & Expected Text is :- Filtered product import confirmation</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:25:27 PM</td>
+					<td class='step-details'>Where Actual Text is :- Instant import & Expected Text is :- Instant import</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:25:27 PM</td>
+					<td class='step-details'>Where Actual Text is :- Backend import & Expected Text is :- Backend import</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:27 PM</td>
+					<td class='step-details'>Click on cross successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:29 PM</td>
+					<td class='step-details'>Click on import product option successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:29 PM</td>
+					<td class='step-details'>Select select import options successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:25:29 PM</td>
+					<td class='step-details'>Where Actual Text is :- All products import & Expected Text is :- All products import</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:25:29 PM</td>
+					<td class='step-details'>Where Actual Text is :- Published products import & Expected Text is :- Published products import</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:25:29 PM</td>
+					<td class='step-details'>Where Actual Text is :- Apply filter for & Expected Text is :- Apply filter for</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:29 PM</td>
+					<td class='step-details'>Click on import product option successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:29 PM</td>
+					<td class='step-details'>Click on import product option successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:30 PM</td>
+					<td class='step-details'>Select apply filter for successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:30 PM</td>
+					<td class='step-details'>Click on collections successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:32 PM</td>
+					<td class='step-details'>Click on fetch product from shopify successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:25:32 PM</td>
+					<td class='step-details'>Where Actual Text is :- Home page & Expected Text is :- Home page</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:25:32 PM</td>
+					<td class='step-details'>Where Actual Text is :- manual collection & Expected Text is :- manual collection</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:25:32 PM</td>
+					<td class='step-details'>Where Actual Text is :- Summer Collection & Expected Text is :- Summer Collection</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:34 PM</td>
+					<td class='step-details'>Click on import product option successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:34 PM</td>
+					<td class='step-details'>Select apply filter for successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:34 PM</td>
+					<td class='step-details'>Click on collections successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:36 PM</td>
+					<td class='step-details'>Click on start import successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:25:36 PM</td>
+					<td class='step-details'>Validation pop-up stating please select atleast one option should appear with ok button</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:39 PM</td>
+					<td class='step-details'>Click on import product option successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:39 PM</td>
+					<td class='step-details'>Select apply filter for successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:39 PM</td>
+					<td class='step-details'>Click on collections successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:41 PM</td>
+					<td class='step-details'>Click on fetch product from shopify successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:42 PM</td>
+					<td class='step-details'>Click on select all successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:42 PM</td>
+					<td class='step-details'>Click on start import successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:25:42 PM</td>
+					<td class='step-details'>Where Actual Text is :- Filtered product import confirmation & Expected Text is :- Filtered product import confirmation</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:25:42 PM</td>
+					<td class='step-details'>Where Actual Text is :- Instant import & Expected Text is :- Instant import</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:25:42 PM</td>
+					<td class='step-details'>Where Actual Text is :- Backend import & Expected Text is :- Backend import</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:42 PM</td>
+					<td class='step-details'>Click on cross successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:25:42 PM</td>
+					<td class='step-details'>Where Actual Attribute Value is :- Home page & Expected Attribute Value is :- Home page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:42 PM</td>
+					<td class='step-details'>Click on select option box successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:42 PM</td>
+					<td class='step-details'>Click on unselect all successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>5:25:42 PM</td>
+					<td class='step-details'>Where Actual Attribute Value is :- Select an option & Expected Attribute Value is :- Select an option</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:44 PM</td>
+					<td class='step-details'>Click on import product option successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:44 PM</td>
+					<td class='step-details'>Select all products import successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>5:25:44 PM</td>
+					<td class='step-details'>Click on instant import successfully</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>5:26:14 PM</td>
+					<td class='step-details'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//h2[text()='Product Syncing Configuration']"}
+  (Session info: chrome=107.0.5304.110)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.5.0', revision: 'fe167b119a'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '5.15.0-53-generic', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [712a3f59de685a0ab343be305c05988e, findElement {using=xpath, value=//h2[text()='Product Syncing Configuration']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.110, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: /tmp/.com.google.Chrome.nngFSz}, goog:chromeOptions: {debuggerAddress: localhost:38443}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: LINUX, proxy: Proxy(), se:cdp: ws://localhost:38443/devtoo..., se:cdpVersion: 107.0.5304.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 712a3f59de685a0ab343be305c05988e
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at jdk.proxy2/jdk.proxy2.$Proxy33.getText(Unknown Source)
+	at generic_and_basetest_methods.Webutil.verifyInnerText(Webutil.java:160)
+	at shopify_wish_installation_methods.Shopify_Wish_Installation.wishOnboarding(Shopify_Wish_Installation.java:225)
+	at runner.ShopifyWishInstallationValidation.validateTC_02(ShopifyWishInstallationValidation.java:24)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<!-- category view -->
+<div id='exception-view' class='view hide'>
+
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Exceptions</h3>
+                <ul id='exception-collection' class='exception-collection'>
+
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>org.openqa.selenium.NoSuchElementException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Nov 21, 2022 05:23:31 PM</td>
+                                                        <td class='linked' test-id='2'>validateTC_02</td>
+                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//h2[text()='Product Syncing Configuration']"}
+  (Session info: chrome=107.0.5304.110)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.5.0', revision: 'fe167b119a'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '5.15.0-53-generic', java.version: '17.0.4.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [712a3f59de685a0ab343be305c05988e, findElement {using=xpath, value=//h2[text()='Product Syncing Configuration']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.110, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: /tmp/.com.google.Chrome.nngFSz}, goog:chromeOptions: {debuggerAddress: localhost:38443}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: LINUX, proxy: Proxy(), se:cdp: ws://localhost:38443/devtoo..., se:cdpVersion: 107.0.5304.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 712a3f59de685a0ab343be305c05988e
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:365)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at jdk.proxy2/jdk.proxy2.$Proxy33.getText(Unknown Source)
+	at generic_and_basetest_methods.Webutil.verifyInnerText(Webutil.java:160)
+	at shopify_wish_installation_methods.Shopify_Wish_Installation.wishOnboarding(Shopify_Wish_Installation.java:225)
+	at runner.ShopifyWishInstallationValidation.validateTC_02(ShopifyWishInstallationValidation.java:24)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='exception-name'></h5>
+        </div>
+    </div>
+</div>
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>2</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>130</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Nov 21, 2022 05:22:55 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Nov 21, 2022 05:26:14 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>199,059ms</div>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel dashboard-environment'>
+					<span class='right label cyan white-text'>Environment</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Value</th>
+						</tr>
+							<tr>
+								<td>username</td>
+								<td>cedcoss</td>
+							</tr>
+							<tr>
+								<td>Envoirment</td>
+								<td>QA</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 1,
+				failParent: 1,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 1,
+				
+				passChild: 38,
+				failChild: 1,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 91,
+				exceptionsChild: 1,
+				
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 		</script>
+	</body>
+	
+</html>
